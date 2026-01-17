@@ -1,0 +1,126 @@
+//revision of fundamentls of fop and oops
+import java.util.Scanner;
+
+class Student {
+    String name;
+    int rollNo;
+
+    Student(String n, int r) {
+        name = n;
+        rollNo = r;
+    }
+
+    void displayInfo() {
+        System.out.println("Student Name: " + name + ", Roll No: " + rollNo);
+    }
+}
+
+class Car {
+    String brand;
+    String model;
+    double price;
+
+    Car(String b, String m, double p) {
+        brand = b;
+        model = m;
+        price = p;
+    }
+
+    void displayDetails() {
+        System.out.println("Car Brand: " + brand + ", Model: " + model + ", Price: $" + price);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        // 1. Variables & Data Types
+        String myName = "Moiz";
+        int myRoll = 101;
+        double gpa = 3.8;
+        char grade = 'A';
+        boolean passed = true;
+
+        System.out.println("Name: " + myName + ", Roll No: " + myRoll);
+        System.out.println("GPA: " + gpa + ", Grade: " + grade + ", Passed? " + passed);
+
+        // 2. Input / Output
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\nEnter your age: ");
+        int age = sc.nextInt();
+        System.out.println("You are " + age + " years old.");
+
+        // 3. Conditional Statements
+        System.out.print("\nEnter a number to check even/odd: ");
+        int num = sc.nextInt();
+        if (num % 2 == 0)
+            System.out.println(num + " is Even");
+        else
+            System.out.println(num + " is Odd");
+
+        // 4. Loops
+        System.out.println("\nCounting from 1 to 5:");
+        for (int i = 1; i <= 5; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        // 5. Arrays
+        int[] marks = {88, 76, 90, 85, 69};
+        int total = 0;
+        for (int i = 0; i < marks.length; i++) {
+            total += marks[i];
+        }
+        double average = (double) total / marks.length;
+        System.out.println("\nAverage Marks: " + average);
+
+        // 6. Functions
+        System.out.println("\nFactorial of 5 is: " + factorial(5));
+
+        // 7. Objects / OOP
+        Student s1 = new Student("Ali", 102);
+        Student s2 = new Student("Sara", 103);
+        s1.displayInfo();
+        s2.displayInfo();
+
+        Car c1 = new Car("Toyota", "Corolla", 28000);
+        Car c2 = new Car("Honda", "Civic", 31000);
+        c1.displayDetails();
+        c2.displayDetails();
+
+        // Mini Challenge: Marks & Grade
+        int[] subjects = new int[5];
+        System.out.println("\nEnter marks for 5 subjects:");
+        for (int i = 0; i < subjects.length; i++) {
+            subjects[i] = sc.nextInt();
+        }
+
+        int sum = 0;
+        for (int m : subjects) {
+            sum += m;
+        }
+        double avg = (double) sum / subjects.length;
+        String gradeResult = "";
+        if (avg >= 90)
+            gradeResult = "A+";
+        else if (avg >= 80)
+            gradeResult = "A";
+        else if (avg >= 70)
+            gradeResult = "B";
+        else if (avg >= 60)
+            gradeResult = "C";
+        else
+            gradeResult = "F";
+
+        System.out.println("Total: " + sum + ", Average: " + avg + ", Grade: " + gradeResult);
+    }
+
+    // Function to calculate factorial
+    public static int factorial(int n) {
+        int fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+}
